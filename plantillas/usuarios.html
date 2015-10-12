@@ -1,0 +1,25 @@
+<header>
+	<nav>
+		<li><a href="/">Inicio</a></li>
+		<li><a href="/usuarios">Usuarios Registrados</a></li>
+		<li><a href="/recetas">Recetas</a></li>
+		<li><a href="/sobre">Sobre</a></li>
+	</nav>
+</header>
+<section>
+	<h1>Colaboradores</h1>
+	<p>Actualmente tenemos registradas las siguientes recetas</p>
+	<ul>
+		{% for element in lista_usuarios %}
+		<li>{{element.username}}-<em>{{element.email}}</em></li>
+			<ul>
+				{% for element_in in recetas %}
+					{% if element_in.usuario == element %}
+						<li>{{ element_in}}</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</li>
+		{% endfor %}
+	</ul>
+</section>

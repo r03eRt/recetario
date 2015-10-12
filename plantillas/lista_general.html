@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='es'>
+  <head>
+	<title>Lista de bebidas y recetas de ejemplo</title>
+	<meta charset='utf-8'>
+  </head>
+  <body>
+	<h1>Recetario de Bebidas</h1>
+	{% for elemento in lista_recetas %}
+	<ul>
+	  <li><strong>{{elemento.titulo}}</strong></li>
+	  <li>{{elemento.ingredientes}}</li>
+	  <li>{{elemento.preparacion}}</li>
+	</ul>
+	{% endfor %}
+
+	<h1>Recetario de Recetas</h1>
+	{% for elemento in lista_recetas %}
+	<ul>
+	  <li><strong>{{elemento.titulo}}</strong></li>
+	  <li>{{elemento.ingredientes}}</li>
+	  <li>{{elemento.preparacion}}</li>
+	  <li><img src="{{elemento.imagen}}"></li>
+	  <li>{{elemento.tiempo_registro}}</li>
+	  <li>{{elemento.usuario}}</li>
+	  <li>
+	  no funciona muestra los mismos comentarios en todos
+	  	<ul>
+	  		{% for elemento2 in lista_comentarios %}
+	  		<li>{{elemento2.texto}}</li>
+	  		{% endfor %}
+	  	</ul>
+	  </li>
+	</ul>
+	{% endfor %}
+  </body>
+</html>
